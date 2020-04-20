@@ -1,0 +1,493 @@
+// doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='theme-color' content='#4DA5F4')
+    meta(name='csrf-token', content=_csrf)
+    title #{title}
+    base(href='/')
+    link(rel='shortcut icon', href='/favicon.png')
+    link(rel='stylesheet', href='/css/main.css')
+
+  body
+    include partials/header
+
+    .container
+      include partials/flash
+      block content
+
+    include partials/footer
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js')
+    script(src='/js/lib/bootstrap.min.js')
+    script(src='/js/main.js')
+    //script(src='https://cdn.socket.io/socket.io-1.2.0.js')
+    // Google Analytics: change UA-XXXXX-X to be your site's ID
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-XXXXX-X', 'auto');
+      ga('send', 'pageview');
+
+    script.
+      document.getElementById('vyutpatti_details').disabled = true
+      document.getElementById('nishpatti_details').disabled = true
+      
+      document.getElementById('vyutpatti_details1').disabled = true
+      document.getElementById('nishpatti_details1').disabled = true
+      
+      document.getElementById('vyutpatti_details2').disabled = true
+      document.getElementById('nishpatti_details2').disabled = true
+      
+      document.getElementById('vyutpatti_details3').disabled = true
+      document.getElementById('nishpatti_details3').disabled = true
+      
+      document.getElementById('vyutpatti_details4').disabled = true
+      document.getElementById('nishpatti_details4').disabled = true
+      
+      document.getElementById('vyutpatti_details5').disabled = true
+      document.getElementById('nishpatti_details5').disabled = true
+      
+      document.getElementById('vyutpatti_details6').disabled = true
+      document.getElementById('nishpatti_details6').disabled = true
+      
+      document.getElementById('vyutpatti_details7').disabled = true
+      document.getElementById('nishpatti_details7').disabled = true
+      
+      document.getElementById('vyutpatti_details8').disabled = true
+      document.getElementById('nishpatti_details8').disabled = true
+      
+      document.getElementById('vyutpatti_details9').disabled = true
+      document.getElementById('nishpatti_details9').disabled = true
+      
+      document.getElementById('vyutpatti_details10').disabled = true
+      document.getElementById('nishpatti_details10').disabled = true
+      
+      document.getElementById('vyutpatti_details11').disabled = true
+      document.getElementById('nishpatti_details11').disabled = true
+      
+      document.getElementById('vyutpatti_details12').disabled = true
+      document.getElementById('nishpatti_details12').disabled = true
+      
+      document.getElementById('vyutpatti_details13').disabled = true
+      document.getElementById('nishpatti_details13').disabled = true
+      
+      document.getElementById('vyutpatti_details14').disabled = true
+      document.getElementById('nishpatti_details14').disabled = true
+      
+      document.getElementById('vyutpatti_details15').disabled = true
+      document.getElementById('nishpatti_details15').disabled = true
+      
+      document.getElementById('vyutpatti_details16').disabled = true
+      document.getElementById('nishpatti_details16').disabled = true
+      
+      document.getElementById('vyutpatti_details17').disabled = true
+      document.getElementById('nishpatti_details17').disabled = true
+      
+      document.getElementById('vyutpatti_details18').disabled = true
+      document.getElementById('nishpatti_details18').disabled = true
+      
+      document.getElementById('vyutpatti_details19').disabled = true
+      document.getElementById('nishpatti_details19').disabled = true
+      
+      document.getElementById('vyutpatti_details20').disabled = true
+      document.getElementById('nishpatti_details20').disabled = true
+      
+      document.getElementById('vyutpatti_details21').disabled = true
+      document.getElementById('nishpatti_details21').disabled = true
+      
+      document.getElementById('vyutpatti_details22').disabled = true
+      document.getElementById('nishpatti_details22').disabled = true
+      
+      document.getElementById('vyutpatti_details23').disabled = true
+      document.getElementById('nishpatti_details23').disabled = true
+      
+      document.getElementById('vyutpatti_details24').disabled = true
+      document.getElementById('nishpatti_details24').disabled = true
+      
+      document.getElementById('sub0').style.display = false
+      document.getElementById('dhatu0').style.display = false
+      document.getElementById('avyaya0').style.display = false
+      document.getElementById('others0').style.display = false
+      
+      
+      function enableDisable(bEnable, textBoxID)
+        {
+             document.getElementById(textBoxID).disabled = !bEnable
+        }
+      
+      function showDetails(id)
+        {
+            let sub = document.getElementById('sub'+id+'radio')
+            let dhatu = document.getElementById('tig'+id+'radio')
+            let avyaya = document.getElementById('avy'+id+'radio')
+            let others = document.getElementById('oth'+id+'radio')
+            if(sub.checked) document.getElementById('sub'+id).classList.remove("collapse") 
+            else document.getElementById('sub'+id).classList.add("collapse")
+            if(dhatu.checked) document.getElementById('dhatu'+id).classList.remove("collapse") 
+            else document.getElementById('dhatu'+id).classList.add("collapse")
+            if(avyaya.checked) document.getElementById('avyaya'+id).classList.remove("collapse") 
+            else document.getElementById('avyaya'+id).classList.add("collapse")
+            if(others.checked) document.getElementById('others'+id).classList.remove("collapse") 
+            else document.getElementById('others'+id).classList.add("collapse")
+        }
+
+        function editDetails(id,checkedValue) {
+            
+            if(checkedValue!="" && isPadavibhagaEdited[id]==undefined)
+            {
+            var getstring = checkedValue.toLowerCase().split(",");
+            var substr = checkedValue.toLowerCase().substring(0, 3);
+                 checkedVal = substr;
+                 isPadavibhagaEdited[id]=checkedVal;
+                  document.getElementById(checkedVal+id+'radio').checked = true;
+           
+            }
+            showDetails(id)
+        }
+
+      function CheckVV(id, val){
+         let element=document.getElementById(id);
+         if(val=='others')
+           element.style.display='block';
+         else  
+           element.style.display='none';
+        }
+        
+      function displaySamasa(samasa){
+        return 'samasa';
+      }
+      
+
+      function displayInput(selectid) {
+        let select = document.getElementById(selectid);
+        let num = selectid.substr(-2);
+        console.log(select);
+        let value = select.value;
+        let eka, tadkrud, other, samasa;
+        if(num == 't1') {
+        eka = document.getElementsByClassName('eka1');
+        tadkrud = document.getElementsByClassName('tadkrud1');
+        samasa = document.getElementsByClassName('samasa1');
+        other = document.getElementsByClassName('other_type1');
+        }
+        else if(num == 't2') {
+        eka = document.getElementsByClassName('eka2');
+        tadkrud = document.getElementsByClassName('tadkrud2');
+        samasa = document.getElementsByClassName('samasa2');
+        other = document.getElementsByClassName('other_type2');
+        }
+        else if(num == 't3') {
+        eka = document.getElementsByClassName('eka3');
+        tadkrud = document.getElementsByClassName('tadkrud3');
+        samasa = document.getElementsByClassName('samasa3');
+        other = document.getElementsByClassName('other_type3');
+        }
+        else if(num == 't4') {
+        eka = document.getElementsByClassName('eka4');
+        tadkrud = document.getElementsByClassName('tadkrud4');
+        samasa = document.getElementsByClassName('samasa4');
+        other = document.getElementsByClassName('other_type4');
+        }
+        else if(num == 't5') {
+        eka = document.getElementsByClassName('eka5');
+        tadkrud = document.getElementsByClassName('tadkrud5');
+        samasa = document.getElementsByClassName('samasa5');
+        other = document.getElementsByClassName('other_type5');
+        }
+        else if(num == 't6') {
+        eka = document.getElementsByClassName('eka6');
+        tadkrud = document.getElementsByClassName('tadkrud6');
+        samasa = document.getElementsByClassName('samasa6');
+        other = document.getElementsByClassName('other_type6');
+        }
+        else if(num == 't7') {
+        eka = document.getElementsByClassName('eka7');
+        tadkrud = document.getElementsByClassName('tadkrud7');
+        samasa = document.getElementsByClassName('samasa7');
+        other = document.getElementsByClassName('other_type7');
+        }
+        else if(num == 't8') {
+        eka = document.getElementsByClassName('eka8');
+        tadkrud = document.getElementsByClassName('tadkrud8');
+        samasa = document.getElementsByClassName('samasa8');
+        other = document.getElementsByClassName('other_type8');
+        }
+        else if(num == 't9') {
+        eka = document.getElementsByClassName('eka9');
+        tadkrud = document.getElementsByClassName('tadkrud9');
+        samasa = document.getElementsByClassName('samasa9');
+        other = document.getElementsByClassName('other_type9');
+        }
+        else if(num == 10) {
+        eka = document.getElementsByClassName('eka10');
+        tadkrud = document.getElementsByClassName('tadkrud10');
+        samasa = document.getElementsByClassName('samasa10');
+        other = document.getElementsByClassName('other_type10');
+        }
+        else if(num == 11) {
+        eka = document.getElementsByClassName('eka11');
+        tadkrud = document.getElementsByClassName('tadkrud11');
+        samasa = document.getElementsByClassName('samasa11');
+        other = document.getElementsByClassName('other_type11');
+        }
+        else if(num == 12) {
+        eka = document.getElementsByClassName('eka12');
+        tadkrud = document.getElementsByClassName('tadkrud12');
+        samasa = document.getElementsByClassName('samasa12');
+        other = document.getElementsByClassName('other_type12');
+        }
+        else if(num == 13) {
+        eka = document.getElementsByClassName('eka13');
+        tadkrud = document.getElementsByClassName('tadkrud13');
+        samasa = document.getElementsByClassName('samasa13');
+        other = document.getElementsByClassName('other_type13');
+        }
+        else if(num == 14) {
+        eka = document.getElementsByClassName('eka14');
+        tadkrud = document.getElementsByClassName('tadkrud14');
+        samasa = document.getElementsByClassName('samasa14');
+        other = document.getElementsByClassName('other_type14');
+        }
+        else if(num == 15) {
+        eka = document.getElementsByClassName('eka15');
+        tadkrud = document.getElementsByClassName('tadkrud15');
+        samasa = document.getElementsByClassName('samasa15');
+        other = document.getElementsByClassName('other_type15');
+        }
+        else if(num == 16) {
+        eka = document.getElementsByClassName('eka16');
+        tadkrud = document.getElementsByClassName('tadkrud16');
+        samasa = document.getElementsByClassName('samasa16');
+        other = document.getElementsByClassName('other_type16');
+        }
+        else if(num == 17) {
+        eka = document.getElementsByClassName('eka17');
+        tadkrud = document.getElementsByClassName('tadkrud17');
+        samasa = document.getElementsByClassName('samasa17');
+        other = document.getElementsByClassName('other_type17');
+        }
+        else if(num == 18) {
+        eka = document.getElementsByClassName('eka18');
+        tadkrud = document.getElementsByClassName('tadkrud18');
+        samasa = document.getElementsByClassName('samasa18');
+        other = document.getElementsByClassName('other_type18');
+        }
+        else if(num == 19) {
+        eka = document.getElementsByClassName('eka19');
+        tadkrud = document.getElementsByClassName('tadkrud19');
+        samasa = document.getElementsByClassName('samasa19');
+        other = document.getElementsByClassName('other_type19');
+        }
+        else if(num == 20) {
+        eka = document.getElementsByClassName('eka20');
+        tadkrud = document.getElementsByClassName('tadkrud20');
+        samasa = document.getElementsByClassName('samasa20');
+        other = document.getElementsByClassName('other_type20');
+        }
+        else if(num == 21) {
+        eka = document.getElementsByClassName('eka21');
+        tadkrud = document.getElementsByClassName('tadkrud21');
+        samasa = document.getElementsByClassName('samasa21');
+        other = document.getElementsByClassName('other_type21');
+        }
+        else if(num == 22) {
+        eka = document.getElementsByClassName('eka22');
+        tadkrud = document.getElementsByClassName('tadkrud22');
+        samasa = document.getElementsByClassName('samasa22');
+        other = document.getElementsByClassName('other_type22');
+        }
+        else if(num == 23) {
+        eka = document.getElementsByClassName('eka23');
+        tadkrud = document.getElementsByClassName('tadkrud23');
+        samasa = document.getElementsByClassName('samasa23');
+        other = document.getElementsByClassName('other_type23');
+        }
+        else if(num == 24) {
+        eka = document.getElementsByClassName('eka24');
+        tadkrud = document.getElementsByClassName('tadkrud24');
+        samasa = document.getElementsByClassName('samasa24');
+        other = document.getElementsByClassName('other_type24');
+        }
+        else if(num == 25) {
+        eka = document.getElementsByClassName('eka25');
+        tadkrud = document.getElementsByClassName('tadkrud25');
+        samasa = document.getElementsByClassName('samasa25');
+        other = document.getElementsByClassName('other_type25');
+        }
+        else if(num == 26) {
+        eka = document.getElementsByClassName('eka26');
+        tadkrud = document.getElementsByClassName('tadkrud26');
+        samasa = document.getElementsByClassName('samasa26');
+        other = document.getElementsByClassName('other_type26');
+        }
+        else if(num == 27) {
+        eka = document.getElementsByClassName('eka27');
+        tadkrud = document.getElementsByClassName('tadkrud27');
+        samasa = document.getElementsByClassName('samasa27');
+        other = document.getElementsByClassName('other_type27');
+        }
+        else if(num == 28) {
+        eka = document.getElementsByClassName('eka28');
+        tadkrud = document.getElementsByClassName('tadkrud28');
+        samasa = document.getElementsByClassName('samasa28');
+        other = document.getElementsByClassName('other_type28');
+        }
+        else if(num == 29) {
+        eka = document.getElementsByClassName('eka29');
+        tadkrud = document.getElementsByClassName('tadkrud29');
+        samasa = document.getElementsByClassName('samasa29');
+        other = document.getElementsByClassName('other_type29');
+        }
+        else if(num == 30) {
+        eka = document.getElementsByClassName('eka30');
+        tadkrud = document.getElementsByClassName('tadkrud30');
+        samasa = document.getElementsByClassName('samasa30');
+        other = document.getElementsByClassName('other_type30');
+        }
+        else if(num == 31) {
+        eka = document.getElementsByClassName('eka31');
+        tadkrud = document.getElementsByClassName('tadkrud31');
+        samasa = document.getElementsByClassName('samasa31');
+        other = document.getElementsByClassName('other_type31');
+        }
+        else if(num == 32) {
+        eka = document.getElementsByClassName('eka32');
+        tadkrud = document.getElementsByClassName('tadkrud32');
+        samasa = document.getElementsByClassName('samasa32');
+        other = document.getElementsByClassName('other_type32');
+        }
+        else if(num == 33) {
+        eka = document.getElementsByClassName('eka33');
+        tadkrud = document.getElementsByClassName('tadkrud33');
+        samasa = document.getElementsByClassName('samasa33');
+        other = document.getElementsByClassName('other_type33');
+        }
+        else if(num == 34) {
+        eka = document.getElementsByClassName('eka34');
+        tadkrud = document.getElementsByClassName('tadkrud34');
+        samasa = document.getElementsByClassName('samasa34');
+        other = document.getElementsByClassName('other_type34');
+        }
+        else if(num == 35) {
+        eka = document.getElementsByClassName('eka35');
+        tadkrud = document.getElementsByClassName('tadkrud35');
+        samasa = document.getElementsByClassName('samasa35');
+        other = document.getElementsByClassName('other_type35');
+        }
+        else if(num == 36) {
+        eka = document.getElementsByClassName('eka36');
+        tadkrud = document.getElementsByClassName('tadkrud36');
+        samasa = document.getElementsByClassName('samasa36');
+        other = document.getElementsByClassName('other_type36');
+        }
+        else if(num == 37) {
+        eka = document.getElementsByClassName('eka37');
+        tadkrud = document.getElementsByClassName('tadkrud37');
+        samasa = document.getElementsByClassName('samasa37');
+        other = document.getElementsByClassName('other_type37');
+        }
+        else if(num == 38) {
+        eka = document.getElementsByClassName('eka38');
+        tadkrud = document.getElementsByClassName('tadkrud38');
+        samasa = document.getElementsByClassName('samasa38');
+        other = document.getElementsByClassName('other_type38');
+        }
+        else if(num == 39) {
+        eka = document.getElementsByClassName('eka39');
+        tadkrud = document.getElementsByClassName('tadkrud39');
+        samasa = document.getElementsByClassName('samasa39');
+        other = document.getElementsByClassName('other_type39');
+        }
+        else {
+        eka = document.getElementsByClassName('eka');
+        tadkrud = document.getElementsByClassName('tadkrud');
+        samasa = document.getElementsByClassName('samasa');
+        other = document.getElementsByClassName('other_type');
+        }
+        if (value === 'Taddhita') {
+            // console.log(value);
+            for (i = 0; i < eka.length; i++) {
+                eka[i].style.display = 'none';
+            }
+            for (i = 0; i < samasa.length; i++) {
+                samasa[i].style.display = 'none';
+            }
+            for (i = 0; i < other.length; i++) {
+                other[i].style.display = 'none';
+            }
+            for (i = 0; i < tadkrud.length; i++) {
+                tadkrud[i].style.display = 'block';
+            }
+            return;
+            } 
+        if (value === 'Krudanta') {
+            // console.log(value);
+            for (i = 0; i < eka.length; i++) {
+                eka[i].style.display = 'none';
+            }
+            for (i = 0; i < samasa.length; i++) {
+                samasa[i].style.display = 'none';
+            }
+            for (i = 0; i < other.length; i++) {
+                other[i].style.display = 'none';
+            }
+            for (i = 0; i < tadkrud.length; i++) {
+                tadkrud[i].style.display = 'block';
+            } 
+            return;
+            } 
+        if (value === 'Ekashesha') {
+            // console.log(value);
+            for (i = 0; i < eka.length; i++) {
+                eka[i].style.display = 'block';
+            }
+            for (i = 0; i < tadkrud.length; i++) {
+                tadkrud[i].style.display = 'none';
+            } 
+            for (i = 0; i < other.length; i++) {
+                other[i].style.display = 'none';
+            }
+            for (i = 0; i < samasa.length; i++) {
+                samasa[i].style.display = 'none';
+            }
+            return;
+            } 
+        if (value === 'Samasa') {
+            // console.log(value);
+            for (i = 0; i < eka.length; i++) {
+                eka[i].style.display = 'none';
+            }
+            for (i = 0; i < tadkrud.length; i++) {
+                tadkrud[i].style.display = 'none';
+            } 
+            for (i = 0; i < samasa.length; i++) {
+                samasa[i].style.display = 'block';
+            }
+            for (i = 0; i < other.length; i++) {
+                other[i].style.display = 'none';
+            }
+            return;
+            }
+        if (value === 'Othertype') {
+            // console.log(value);
+            for (i = 0; i < eka.length; i++) {
+                eka[i].style.display = 'none';
+            }
+            for (i = 0; i < tadkrud.length; i++) {
+                tadkrud[i].style.display = 'none';
+            } 
+            for (i = 0; i < samasa.length; i++) {
+                samasa[i].style.display = 'none';
+            }
+            for (i = 0; i < other.length; i++) {
+                other[i].style.display = 'block';
+            }
+            return;
+            } 
+           }
+    
