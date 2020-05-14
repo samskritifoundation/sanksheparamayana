@@ -151,7 +151,7 @@ block content
                               |
                               td= val.sub_dhatu_avyaya
                             |
-                            if val.sub_dhatu_avyaya == 'Subanta,'
+                            if val.sub_dhatu_avyaya == 'Subanta'
                               tr
                                 td Anta
                                 |
@@ -185,7 +185,7 @@ block content
                               p= val.vyutpatti_details
                               p= val.nishpatti_details
                             |
-                            if val.sub_dhatu_avyaya == 'Tiganta,'
+                            if val.sub_dhatu_avyaya == 'Tiganta'
                               tr
                                 td Lakara
                                 |
@@ -251,9 +251,9 @@ block content
                               |
                               td#details
                                 p= val.word_type.details
-                                p
+                                if val.word_type.wordtype == 'Samasa'
                                   for item in val.word_type.samasa
-                                    p #{item.samasta_pada} #{item.vigraha_vakya}  #{item.samasa_name}  #{item.other_details}
+                                    p #{item}
                                 p= val.word_type.other
                             | 
                             tr
